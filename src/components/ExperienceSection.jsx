@@ -1,20 +1,27 @@
+"use client";
+
 export default function ExperienceSection() {
     return (
-        <section id="experience" className="min-h-screen bg-black text-white px-6 py-12">
-
-            <h1 className="text-4xl font-bold mb-10 text-center">
+        <section
+            id="experience"
+            className="min-h-screen bg-black text-white px-6 py-20"
+        >
+            {/* Title */}
+            <h1 className="text-4xl font-bold text-center mb-16">
                 Experience
             </h1>
 
-            <div className="flex flex-col gap-6 max-w-3xl mx-auto">
+            {/* Cards Grid */}
+            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
 
                 <Experience
                     year="May 2025 – Jul 2025"
                     role="Full Stack Developer Intern"
                     company="Codebrahma Tech Solutions"
-                    description="Built a secure LMS admin dashboard using Next.js with RBAC for 3+ roles and permission-based access. Improved performance by 30% (Lighthouse 95) via SSR and optimizations, and developed 20+ reusable UI components with MUI and Framer Motion."
-                    tech={["Next.js", "React.js", "Express.js", "Node.js", "UI/UX", "Database Development"]}
+                    description="Built a secure LMS admin dashboard using Next.js with RBAC for 3+ roles and permission-based access. Improved performance by 30% (Lighthouse 95) via SSR and optimizations, and developed 20+ reusable UI components."
+                    tech={["Next.js", "React.js", "Node.js", "Express.js", "MUI", "Framer Motion"]}
                 />
+
             </div>
         </section>
     );
@@ -28,32 +35,39 @@ function Experience({
     tech = [],
 }) {
     return (
-        <div className="border border-gray-700 rounded-xl p-5 bg-white/5 backdrop-blur-md hover:border-white transition duration-300" id="experience">
-            {/* Year */}
-            <p className="text-sm text-gray-400 mb-1">{year}</p>
-            {/* Role */}
-            <h2 className="text-xl font-semibold">{role}</h2>
-            {/* Company */}
-            <p className="text-gray-300 mb-2">{company}</p>
-            {/* Description */}
-            {description && (
-                <p className="text-gray-400 text-sm mb-3">
-                    {description}
-                </p>
-            )}
-            {/* Tech Stack */}
-            {tech.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                    {tech.map((t, i) => (
-                        <span
-                            key={i}
-                            className="text-xs px-3 py-1 bg-white/10 border border-gray-600 rounded-full"
-                        >
-                            {t}
-                        </span>
-                    ))}
+        <div className="group border border-gray-800 rounded-2xl p-6 bg-white/5 backdrop-blur-md hover:border-white hover:shadow-lg hover:shadow-white/10 transition duration-300">
+
+            {/* Top Row */}
+            <div className="flex items-center justify-between mb-4">
+
+                {/* Image + Company */}
+                <div className="flex items-center gap-3">
+                    <div>
+                        <p className="text-sm text-gray-400">{company}</p>
+                        <h2 className="text-lg font-semibold">{role}</h2>
+                    </div>
                 </div>
-            )}
+
+                {/* Year */}
+                <span className="text-xs text-gray-400">{year}</span>
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                {description}
+            </p>
+
+            {/* Tech */}
+            <div className="flex flex-wrap gap-2">
+                {tech.map((t, i) => (
+                    <span
+                        key={i}
+                        className="text-xs px-3 py-1 bg-white/10 border border-gray-700 rounded-full group-hover:border-white transition"
+                    >
+                        {t}
+                    </span>
+                ))}
+            </div>
         </div>
     );
 }
