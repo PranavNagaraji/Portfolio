@@ -1,21 +1,41 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, AnimatePresence } from "framer-motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Hero() {
     const container = useRef(null);
+    const [wordIndex, setWordIndex] = useState(0);
+    const words = [
+        "Hello",      // English
+        "Hola",       // Spanish
+        "Bonjour",    // French
+        "नमस्ते",     // Hindi
+        "வணக்கம்",    // Tamil
+        "నమస్కారం",   // Telugu
+        "ನಮಸ್ಕಾರ",   // Kannada
+        "こんにちは",   // Japanese
+        "Ciao"        // Italian
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setWordIndex((prev) => (prev + 1) % words.length);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, []);
 
     useGSAP(() => {
         const tl = gsap.timeline();
 
         // Background styling subtle entrance
-        gsap.fromTo(".hero-orb", 
-            { opacity: 0, scale: 0.5 }, 
+        gsap.fromTo(".hero-orb",
+            { opacity: 0, scale: 0.5 },
             { opacity: 1, scale: 1, duration: 2.5, ease: "power3.out", stagger: 0.3 }
         );
 
@@ -48,6 +68,14 @@ export default function Hero() {
             ease: "power2.out"
         }, "-=0.6");
 
+        // Rotator fade in
+        tl.from(".hero-text-rotator", {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            ease: "power2.out"
+        }, "-=0.8");
+
         // Action buttons
         tl.from(".hero-btn", {
             opacity: 0,
@@ -56,7 +84,7 @@ export default function Hero() {
             stagger: 0.15,
             ease: "back.out(1.7)"
         }, "-=0.4");
-        
+
         // --- SCROLL ANIMATIONS ---
         const scrollTl = gsap.timeline({
             scrollTrigger: {
@@ -69,11 +97,11 @@ export default function Hero() {
 
         // Move first name left, last name right
         scrollTl.to(".name-first-wrapper", { xPercent: -30, opacity: 0 }, 0)
-                .to(".name-last-wrapper", { xPercent: 30, opacity: 0 }, 0)
-                // Move subtitle and buttons down slightly and fade out
-                .to(".hero-bottom-wrapper", { y: 50, opacity: 0 }, 0)
-                // Parallax shift the ambient orbs
-                .to(".hero-orb", { yPercent: -50, scale: 1.2 }, 0);
+            .to(".name-last-wrapper", { xPercent: 30, opacity: 0 }, 0)
+            // Move subtitle and buttons down slightly and fade out
+            .to(".hero-bottom-wrapper", { y: 50, opacity: 0 }, 0)
+            // Parallax shift the ambient orbs
+            .to(".hero-orb", { yPercent: -50, scale: 1.2 }, 0);
 
     }, { scope: container });
 
@@ -90,15 +118,15 @@ export default function Hero() {
 
     return (
         <main ref={container} className="relative min-h-screen bg-[#050505] text-white flex flex-col items-center justify-center px-6 overflow-hidden" id="home">
-            
+
             {/* Ambient Background Orbs */}
             <div className="hero-orb absolute top-[10%] left-[15%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-purple-800/30 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none"></div>
             <div className="hero-orb absolute bottom-[10%] right-[15%] w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-blue-800/20 rounded-full blur-[120px] sm:blur-[150px] pointer-events-none"></div>
             <div className="hero-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] sm:w-[600px] h-[80vw] sm:h-[600px] bg-white/5 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none"></div>
 
             {/* Dotted Grid Pattern with edge fade out */}
-            <div 
-                className="absolute inset-0 z-0 pointer-events-none opacity-[0.25]" 
+            <div
+                className="absolute inset-0 z-0 pointer-events-none opacity-[0.25]"
                 style={{
                     backgroundImage: `radial-gradient(circle at center, #ffffff 1px, transparent 1px)`,
                     backgroundSize: `48px 48px`,
@@ -108,7 +136,7 @@ export default function Hero() {
             ></div>
 
             <section className="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center">
-                
+
                 {/* Main Heading */}
                 <div className="name-first-wrapper overflow-visible mb-2 sm:mb-4">
                     <h1 className="hero-name-first hero-text-line text-[14vw] md:text-[8rem] lg:text-[10rem] font-black tracking-tighter leading-[0.85] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555]">
@@ -123,10 +151,32 @@ export default function Hero() {
 
                 <div className="hero-bottom-wrapper flex flex-col items-center">
                     {/* Subtitle */}
-                    <p className="hero-subtitle text-base md:text-xl lg:text-2xl font-medium text-[#888888] tracking-widest uppercase mb-12 max-w-2xl px-4">
+                    <p className="hero-subtitle text-base md:text-xl lg:text-2xl font-medium text-[#888888] tracking-widest uppercase mb-4 max-w-2xl px-4">
                         Full Stack <span className="text-white">Developer</span> <br className="hidden sm:block" />
                         Building Scalable Web Apps
                     </p>
+
+                    {/* Animated Rotating Text */}
+                    <motion.div layout className="hero-text-rotator flex items-center justify-center gap-2 text-sm md:text-base lg:text-lg font-mono text-gray-500 tracking-widest uppercase mb-12 px-5 border border-white/10 rounded-full py-2 shadow-[0_0_20px_rgba(255,255,255,0.05)] bg-[#0c0c0c]/50 backdrop-blur-md">
+                        <motion.span layout>One greeting, many languages, </motion.span>
+                        <motion.div layout className="relative h-[1.5em] overflow-hidden text-center flex items-center justify-center">
+                            <AnimatePresence mode="popLayout">
+                                <motion.span
+                                    layout
+                                    key={words[wordIndex]}
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: -20, opacity: 0 }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                    className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-bold inline-block whitespace-nowrap"
+                                >
+                                    {words[wordIndex]}
+                                </motion.span>
+                            </AnimatePresence>
+                        </motion.div>
+                        {/* <motion.span layout>, just said differently</motion.span> */}
+                        <motion.span layout>!</motion.span>
+                    </motion.div>
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-8 sm:px-0">

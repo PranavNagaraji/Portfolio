@@ -12,8 +12,8 @@ const experiences = [
         year: "May 2025 – Jul 2025",
         role: "Full Stack Developer Intern",
         company: "Codebrahma Tech Solutions",
-        description: "Built a secure LMS admin dashboard using Next.js with RBAC for 3+ roles and permission-based access. Improved performance by 30% (Lighthouse 95) via SSR and optimizations, and developed 20+ reusable UI components.",
-        tech: ["Next.js", "React.js", "Node.js", "Express.js", "MUI", "Framer Motion"]
+        description: "Built a secure LMS admin dashboard using Next.js with RBAC and permission-based access. Improved performance by 15% (Lighthouse 95) via SSR and reusable optimizations.",
+        tech: ["Next.js", "React.js", "Node.js", "Express.js", "Database Design"]
     }
 ];
 
@@ -24,7 +24,7 @@ export default function ExperienceSection() {
         const cards = gsap.utils.toArray('.flip-card');
 
         // Initial z-index setup so first card is on top
-        gsap.set(cards, { 
+        gsap.set(cards, {
             zIndex: (i, target, targets) => targets.length - i,
         });
 
@@ -80,7 +80,7 @@ export default function ExperienceSection() {
             <div className="absolute bottom-[10%] left-[-10%] w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div 
+                <div
                     className="relative w-[calc(100%-3rem)] max-w-7xl h-[85vh] lg:h-[80vh] perspective-[1500px]"
                 >
                     {/* Intro Card */}
@@ -89,12 +89,12 @@ export default function ExperienceSection() {
                             <h1 className="intro-text text-[15vw] md:text-[8rem] lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] tracking-tighter leading-[0.85] uppercase mb-4 lg:mb-6 whitespace-nowrap">
                                 Experience
                             </h1>
-                            
+
                             {/* Separator */}
                             <div className="intro-text flex items-center gap-4 pl-1 mb-6 lg:mb-8 mt-2 lg:mt-4">
                                 <div className="w-24 md:w-48 h-[2px] bg-gradient-to-r from-white to-white/10"></div>
                             </div>
-                            
+
                             <p className="intro-text text-2xl md:text-5xl lg:text-6xl font-semibold text-[#888888] leading-tight tracking-tight pl-1">
                                 My professional <br />
                                 <span className="text-white font-bold">background.</span>
@@ -123,7 +123,7 @@ function Experience({
 }) {
     return (
         <div className="w-full bg-[#0c0c0c] border border-white/10 rounded-[2rem] p-6 md:p-8 lg:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row gap-6 lg:gap-16 items-start overflow-hidden hover:bg-[#0f0f0f] transition-all duration-500 relative">
-            
+
             {/* Left Column: Date & Company */}
             <div className="w-full md:w-1/3 flex-shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-10 flex flex-col justify-start">
                 <p className="text-xs md:text-sm lg:text-base text-[#666666] font-mono mb-2 md:mb-4 uppercase tracking-widest">{year}</p>
@@ -134,7 +134,7 @@ function Experience({
             <div className="w-full md:w-2/3 flex flex-col justify-start">
                 <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] uppercase tracking-tighter mb-4 md:mb-6 leading-[1.1]">{role}</h2>
                 <p className="text-base md:text-lg lg:text-2xl text-[#888888] leading-relaxed font-medium mb-6 md:mb-8">{description}</p>
-                
+
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 lg:gap-3 mt-4">
                     {tech.map((t, i) => (
