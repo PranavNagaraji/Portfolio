@@ -169,7 +169,7 @@ export default function Skills() {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
                     variants={containerVariants}
-                    className="w-full grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-y-12 gap-x-6 md:gap-x-12 justify-items-center"
+                    className="w-full max-w-4xl grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-y-10 gap-x-4 md:gap-x-6 justify-items-center"
                 >
                     {displaySkills.map((skill, i) => (
                         <motion.div 
