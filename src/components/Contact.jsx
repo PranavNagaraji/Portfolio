@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
+import { SiGmail, SiLeetcode } from "react-icons/si";
 import Icon from "./Icon";
 
 export default function Socials() {
@@ -39,6 +39,13 @@ export default function Socials() {
                     <Icon icon={SiGmail} href="mailto:pranavnagaraji22@gmail.com" />
                     <p className="text-xs mt-2 text-gray-400 group-hover:text-white transition">
                         Gmail
+                    </p>
+                </div>
+
+                <div className="flex flex-col items-center group">
+                    <Icon icon={SiLeetcode} href="https://leetcode.com/u/PranavNagaraji/" />
+                    <p className="text-xs mt-2 text-gray-400 group-hover:text-white transition">
+                        Leetcode
                     </p>
                 </div>
 

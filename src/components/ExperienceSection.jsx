@@ -1,18 +1,59 @@
 "use client";
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 export default function ExperienceSection() {
+    const container = useRef(null);
+
+    useGSAP(() => {
+        // Safe entrance animation - top 95% ensures it almost always triggers if it's on screen
+        gsap.from(".experience-title", {
+            scrollTrigger: {
+                trigger: container.current,
+                start: "top 95%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out"
+        });
+    }, { scope: container });
+
     return (
         <section
             id="experience"
-            className="min-h-screen bg-black text-white px-6 py-20"
+            ref={container}
+            className="relative bg-[#050505] min-h-screen pt-32 pb-40 px-6 overflow-hidden"
         >
-            {/* Title */}
-            <h1 className="text-4xl font-bold text-center mb-16">
-                Experience
-            </h1>
+            {/* Background elements */}
+            <div className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none"></div>
+            <div className="absolute bottom-[10%] left-[-10%] w-[800px] h-[800px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none"></div>
 
-            {/* Cards Grid */}
-            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            {/* Title Section */}
+            <div className="max-w-7xl mx-auto w-full mb-20 md:mb-32 relative z-10 pl-2 lg:pl-8">
+                <h1 className="experience-title text-[15vw] md:text-[8rem] lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] tracking-tighter leading-[0.85] uppercase mb-6 whitespace-nowrap">
+                    Experience
+                </h1>
+                
+                {/* Separator */}
+                <div className="experience-title flex items-center gap-4 pl-1 mb-8 mt-4">
+                    <div className="w-32 md:w-48 h-[2px] bg-gradient-to-r from-transparent to-white/40"></div>
+                </div>
+                
+                <p className="experience-title text-2xl md:text-3xl lg:text-4xl font-semibold text-[#888888] leading-tight tracking-tight pl-1">
+                    My professional <br />
+                    <span className="text-white font-bold">background.</span>
+                </p>
+            </div>
+
+            {/* Cards List */}
+            <div className="experience-list max-w-7xl mx-auto w-full flex flex-col gap-12 relative z-10">
 
                 <Experience
                     year="May 2025 – Jul 2025"
@@ -35,38 +76,30 @@ function Experience({
     tech = [],
 }) {
     return (
-        <div className="group border border-gray-800 rounded-2xl p-6 bg-white/5 backdrop-blur-md hover:border-white hover:shadow-lg hover:shadow-white/10 transition duration-300">
-
-            {/* Top Row */}
-            <div className="flex items-center justify-between mb-4">
-
-                {/* Image + Company */}
-                <div className="flex items-center gap-3">
-                    <div>
-                        <p className="text-sm text-gray-400">{company}</p>
-                        <h2 className="text-lg font-semibold">{role}</h2>
-                    </div>
-                </div>
-
-                {/* Year */}
-                <span className="text-xs text-gray-400">{year}</span>
+        <div className="experience-card group relative w-full bg-[#0c0c0c] border border-white/5 rounded-[2rem] p-8 lg:p-12 hover:border-white/10 hover:bg-[#0f0f0f] transition-all duration-500 shadow-2xl flex flex-col md:flex-row gap-8 lg:gap-16 items-start overflow-hidden">
+            
+            {/* Left Column: Date & Company */}
+            <div className="w-full md:w-1/3 flex-shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-8 md:pb-0 md:pr-8 flex flex-col justify-start h-full">
+                <p className="text-sm md:text-base text-[#666666] font-mono mb-4 uppercase tracking-widest">{year}</p>
+                <h3 className="text-2xl lg:text-3xl font-extrabold text-[#cccccc] uppercase tracking-tight leading-[1.1] group-hover:text-white transition-colors">{company}</h3>
             </div>
 
-            {/* Description */}
-            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                {description}
-            </p>
-
-            {/* Tech */}
-            <div className="flex flex-wrap gap-2">
-                {tech.map((t, i) => (
-                    <span
-                        key={i}
-                        className="text-xs px-3 py-1 bg-white/10 border border-gray-700 rounded-full group-hover:border-white transition"
-                    >
-                        {t}
-                    </span>
-                ))}
+            {/* Right Column: Role, Description, Tech */}
+            <div className="w-full md:w-2/3 flex flex-col justify-start">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter mb-6 leading-[1.1]">{role}</h2>
+                <p className="text-base md:text-lg lg:text-xl text-[#888888] leading-relaxed font-medium mb-12">{description}</p>
+                
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                    {tech.map((t, i) => (
+                        <span
+                            key={i}
+                            className="text-xs md:text-sm font-mono text-[#a0a0a0] border border-white/10 px-4 py-2 rounded-full uppercase bg-[#161616]"
+                        >
+                            {t}
+                        </span>
+                    ))}
+                </div>
             </div>
         </div>
     );
