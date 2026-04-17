@@ -122,21 +122,21 @@ function Experience({
     tech = [],
 }) {
     return (
-        <div className="w-full h-full lg:h-[85%] bg-[#0c0c0c] border border-white/10 rounded-[2rem] p-6 md:p-8 lg:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row gap-6 lg:gap-16 items-start overflow-hidden hover:bg-[#0f0f0f] transition-all duration-500 relative">
+        <div className="w-full bg-[#0c0c0c] border border-white/10 rounded-[2rem] p-6 md:p-8 lg:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row gap-6 lg:gap-16 items-start overflow-hidden hover:bg-[#0f0f0f] transition-all duration-500 relative">
             
             {/* Left Column: Date & Company */}
-            <div className="w-full md:w-1/3 flex-shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-10 flex flex-col justify-start md:h-full">
+            <div className="w-full md:w-1/3 flex-shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-10 flex flex-col justify-start">
                 <p className="text-xs md:text-sm lg:text-base text-[#666666] font-mono mb-2 md:mb-4 uppercase tracking-widest">{year}</p>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#cccccc] uppercase tracking-tight leading-[1.1]">{company}</h3>
             </div>
 
             {/* Right Column: Role, Description, Tech */}
-            <div className="w-full md:w-2/3 flex flex-col justify-start md:h-full">
-                <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-white uppercase tracking-tighter mb-4 md:mb-8 leading-[1.1]">{role}</h2>
-                <p className="text-base md:text-lg lg:text-2xl text-[#888888] leading-relaxed font-medium mb-8 md:mb-12 flex-grow overflow-y-auto pr-2 custom-scrollbar">{description}</p>
+            <div className="w-full md:w-2/3 flex flex-col justify-start">
+                <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] uppercase tracking-tighter mb-4 md:mb-6 leading-[1.1]">{role}</h2>
+                <p className="text-base md:text-lg lg:text-2xl text-[#888888] leading-relaxed font-medium mb-6 md:mb-8">{description}</p>
                 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 lg:gap-3 mt-auto">
+                <div className="flex flex-wrap gap-2 lg:gap-3 mt-4">
                     {tech.map((t, i) => (
                         <span
                             key={i}
