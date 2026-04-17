@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function ProjectContainer({
     title,
     description,
@@ -7,13 +11,19 @@ export default function ProjectContainer({
     image,
 }) {
     return (
-        <div className="group relative w-full h-full min-h-[450px] bg-[#0c0c0c] border border-white/5 rounded-[2.5rem] p-4 sm:p-6 lg:p-8 hover:bg-[#111] hover:border-white/10 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 flex flex-col justify-start overflow-hidden">
+        <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="group relative w-full h-full min-h-[450px] bg-[#0c0c0c] border border-white/5 rounded-[2.5rem] p-4 sm:p-6 lg:p-8 hover:bg-[#111] hover:border-white/10 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 flex flex-col justify-start overflow-hidden"
+        >
             
             {/* Ambient inner glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
             {/* Image Box */}
-            <div className="w-full aspect-[4/3] sm:h-[280px] sm:aspect-auto rounded-[1.5rem] overflow-hidden bg-[#000] mb-8 relative border border-white/5 flex-shrink-0 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] transition-all duration-500">
+            <div className="w-full aspect-[4/3] sm:h-[280px] sm:aspect-auto rounded-[1.5rem] overflow-hidden bg-[#000] mb-8 relative border border-white/5 flex-shrink-0 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.08)] transition-all duration-500">
                 {image ? (
                     <img
                         src={image}
@@ -82,6 +92,6 @@ export default function ProjectContainer({
                     )}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

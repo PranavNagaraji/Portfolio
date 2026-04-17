@@ -157,18 +157,19 @@ export default function Hero() {
                     </p>
 
                     {/* Animated Rotating Text */}
-                    <motion.div layout className="hero-text-rotator flex items-center justify-center gap-2 text-sm md:text-base lg:text-lg font-mono text-gray-500 tracking-widest uppercase mb-12 px-5 border border-white/10 rounded-full py-2 shadow-[0_0_20px_rgba(255,255,255,0.05)] bg-[#0c0c0c]/50 backdrop-blur-md">
-                        <motion.span layout>One greeting, many languages, </motion.span>
-                        <motion.div layout className="relative h-[1.5em] overflow-hidden text-center flex items-center justify-center">
-                            <AnimatePresence mode="popLayout">
-                                <motion.span
+                    <motion.div layout style={{ position: 'relative' }} className="hero-text-rotator relative flex flex-wrap items-center justify-center gap-1 md:gap-2 text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg font-mono text-gray-500 tracking-widest uppercase mb-12 px-4 md:px-5 border border-white/10 rounded-xl md:rounded-full py-2 md:py-3 shadow-[0_0_20px_rgba(255,255,255,0.05)] bg-[#0c0c0c]/50 backdrop-blur-md">
+                        <motion.span layout className="text-center w-full md:w-auto">One greeting, many languages, </motion.span>
+                        <div className="flex items-center justify-center mt-1 md:mt-0">
+                            <motion.div layout className="relative h-[2.5em] overflow-visible text-center flex items-center justify-center">
+                                <AnimatePresence mode="popLayout">
+                                    <motion.span
                                     layout
                                     key={words[wordIndex]}
-                                    initial={{ y: 20, opacity: 0 }}
+                                    initial={{ y: 30, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
-                                    exit={{ y: -20, opacity: 0 }}
+                                    exit={{ y: -30, opacity: 0 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-bold inline-block whitespace-nowrap"
+                                    className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-bold inline-block whitespace-nowrap pb-1"
                                 >
                                     {words[wordIndex]}
                                 </motion.span>
@@ -176,6 +177,7 @@ export default function Hero() {
                         </motion.div>
                         {/* <motion.span layout>, just said differently</motion.span> */}
                         <motion.span layout>!</motion.span>
+                        </div>
                     </motion.div>
 
                     {/* Buttons */}
