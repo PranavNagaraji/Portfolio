@@ -43,7 +43,7 @@ export default function Navbar() {
         <>
             {/* Floating Pill Navbar */}
             <div className="fixed top-0 left-0 w-full z-[100] flex justify-center mt-4 sm:mt-6 px-4 pointer-events-none">
-                <nav className="pointer-events-auto bg-[#050505]/80 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3 flex items-center shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all duration-300 max-w-full">
+                <nav className="group pointer-events-auto bg-[#0d0714]/70 backdrop-blur-2xl border border-white/10 rounded-full px-5 py-3 flex items-center shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:bg-[#1a0b2e]/80 hover:border-purple-500/30 hover:shadow-[0_0_40px_rgba(168,85,247,0.25)] transition-all duration-500 max-w-full">
                     
                     {/* Logo */}
                     <a 
