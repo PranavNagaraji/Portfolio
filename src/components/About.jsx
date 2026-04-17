@@ -52,33 +52,33 @@ export default function About() {
 
     return (
         <section ref={targetRef} id="about" className="relative h-[400vh] bg-[#050505]" style={{ position: 'relative' }}>
-            <div className="sticky top-0 h-screen flex flex-col items-center overflow-hidden pt-10 md:pt-20">
+            <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center overflow-hidden pt-6 md:pt-20 pb-4 md:pb-8">
 
                 {/* Horizontal Scrolling Area */}
-                <div className="flex-1 w-full flex flex-col justify-center relative overflow-hidden z-10">
-                    <motion.div style={{ x }} className="flex gap-16 md:gap-32 px-6 md:px-20 w-max items-center pb-6">
+                <div className="flex-1 w-full flex flex-col justify-center relative z-10">
+                    <motion.div style={{ x }} className="flex gap-8 md:gap-32 px-6 md:px-20 w-max items-center pb-2 md:pb-6">
 
                         {/* Scrollable Title Section */}
                         <div className="w-max flex-shrink-0 flex flex-col justify-center pl-4 md:pl-0 pr-10 md:pr-24">
-                            <h1 className="text-[17vw] md:text-[8rem] lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] mb-6 tracking-tighter leading-[0.85] uppercase whitespace-nowrap">
+                            <h1 className="text-[16vw] md:text-[8rem] lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] mb-2 md:mb-6 tracking-tighter leading-[0.85] uppercase whitespace-nowrap">
                                 Academic <br />
                                 Pathway
                             </h1>
 
                             {/* Separator / Arrow pointing right */}
-                            <div className="flex items-center gap-4 mb-8 mt-4 pl-1">
-                                <div className="w-32 md:w-48 h-[2px] bg-gradient-to-r from-transparent to-white/40"></div>
+                            <div className="flex items-center gap-4 mb-4 md:mb-8 mt-4 pl-1">
+                                <div className="w-24 md:w-48 h-[2px] bg-gradient-to-r from-transparent to-white/40"></div>
                                 <motion.div
                                     animate={{ x: [0, 8, 0] }}
                                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                 >
-                                    <svg className="w-6 h-6 md:w-8 md:h-8 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 md:w-8 md:h-8 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </motion.div>
                             </div>
 
-                            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#888888] leading-tight tracking-tight pl-1">
+                            <p className="text-xl md:text-3xl lg:text-4xl font-semibold text-[#888888] leading-tight tracking-tight pl-1">
                                 Take a look at my
                                 <br />
                                 <span className="text-white font-bold">educational qualifications.</span>
@@ -91,7 +91,7 @@ export default function About() {
                     </motion.div>
 
                     {/* Progress Bar & Scroll Indicator Container */}
-                    <div className="w-full max-w-[80vw] md:max-w-[800px] mx-auto px-6 mt-6 flex flex-col items-center gap-6 z-20">
+                    <div className="w-full max-w-[80vw] md:max-w-[800px] mx-auto px-4 md:px-6 mt-4 md:mt-6 flex flex-col items-center gap-3 md:gap-6 z-20 shrink-0">
                         <div className="h-[2px] w-full bg-white/10 relative overflow-hidden rounded-full">
                             <motion.div
                                 className="absolute top-0 left-0 h-full bg-white"
@@ -101,7 +101,7 @@ export default function About() {
                         <motion.span
                             animate={{ opacity: [0.5, 1, 0.5] }}
                             transition={{ duration: 2, repeat: Infinity }}
-                            className="text-white text-sm tracking-[0.2em] uppercase font-mono bg-[#050505]/80 px-4 py-1 rounded backdrop-blur-sm"
+                            className="text-white text-[10px] md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase font-mono bg-[#050505]/80 px-4 py-1.5 rounded backdrop-blur-sm"
                         >
                             Scroll to explore →
                         </motion.span>
@@ -109,8 +109,8 @@ export default function About() {
                 </div>
 
                 {/* Background ambient glow */}
-                <div className="absolute top-[-100px] right-[-100px] w-[800px] h-[800px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none"></div>
-                <div className="absolute bottom-[-100px] left-[-100px] w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none"></div>
+                <div className="absolute top-[-100px] right-[-100px] w-[800px] h-[800px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[-100px] left-[-100px] w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
             </div>
         </section>
     );
