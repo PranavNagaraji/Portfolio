@@ -68,10 +68,10 @@ export default function Hero() {
         });
 
         // Move first name left, last name right
-        scrollTl.to(".hero-name-first", { xPercent: -30, opacity: 0 }, 0)
-                .to(".hero-name-last", { xPercent: 30, opacity: 0 }, 0)
+        scrollTl.to(".name-first-wrapper", { xPercent: -30, opacity: 0 }, 0)
+                .to(".name-last-wrapper", { xPercent: 30, opacity: 0 }, 0)
                 // Move subtitle and buttons down slightly and fade out
-                .to(".hero-bottom-content", { y: 50, opacity: 0 }, 0)
+                .to(".hero-bottom-wrapper", { y: 50, opacity: 0 }, 0)
                 // Parallax shift the ambient orbs
                 .to(".hero-orb", { yPercent: -50, scale: 1.2 }, 0);
 
@@ -110,18 +110,18 @@ export default function Hero() {
             <section className="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center">
                 
                 {/* Main Heading */}
-                <div className="overflow-visible mb-2 sm:mb-4">
+                <div className="name-first-wrapper overflow-visible mb-2 sm:mb-4">
                     <h1 className="hero-name-first hero-text-line text-[14vw] md:text-[8rem] lg:text-[10rem] font-black tracking-tighter leading-[0.85] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555]">
                         Pranav
                     </h1>
                 </div>
-                <div className="overflow-visible mb-8 md:mb-10 mt-[-2%]">
+                <div className="name-last-wrapper overflow-visible mb-8 md:mb-10 mt-[-2%]">
                     <h1 className="hero-name-last hero-text-line text-[14vw] md:text-[8rem] lg:text-[10rem] font-black tracking-tighter leading-[0.85] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#aaaaaa] to-[#222222]">
                         Nagaraji<span className="text-white">.</span>
                     </h1>
                 </div>
 
-                <div className="hero-bottom-content flex flex-col items-center">
+                <div className="hero-bottom-wrapper flex flex-col items-center">
                     {/* Subtitle */}
                     <p className="hero-subtitle text-base md:text-xl lg:text-2xl font-medium text-[#888888] tracking-widest uppercase mb-12 max-w-2xl px-4">
                         Full Stack <span className="text-white">Developer</span> <br className="hidden sm:block" />

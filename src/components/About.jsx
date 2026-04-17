@@ -51,7 +51,7 @@ export default function About() {
     const x = useTransform(smoothProgress, [0, 1], ["0%", "-75%"]);
 
     return (
-        <section ref={targetRef} id="about" className="relative h-[400vh] bg-[#050505]">
+        <section ref={targetRef} id="about" className="relative h-[400vh] bg-[#050505]" style={{ position: 'relative' }}>
             <div className="sticky top-0 h-screen flex flex-col items-center overflow-hidden pt-10 md:pt-20">
 
                 {/* Horizontal Scrolling Area */}
