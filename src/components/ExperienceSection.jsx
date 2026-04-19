@@ -21,6 +21,9 @@ export default function ExperienceSection() {
     const container = useRef(null);
 
     useGSAP(() => {
+        // Guarantee non-static position before any ScrollTrigger reads it
+        gsap.set(container.current, { position: "relative" });
+
         const cards       = gsap.utils.toArray(".exp-card");
         const introTop    = gsap.utils.toArray(".intro-panel-top");
         const introBottom = gsap.utils.toArray(".intro-panel-bottom");

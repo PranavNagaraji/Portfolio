@@ -31,6 +31,9 @@ export default function Hero() {
     }, []);
 
     useGSAP(() => {
+        // Guarantee non-static position before any ScrollTrigger reads it
+        gsap.set(container.current, { position: "relative" });
+
         const tl = gsap.timeline();
 
         // Background styling subtle entrance
