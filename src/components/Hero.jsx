@@ -117,7 +117,7 @@ export default function Hero() {
     };
 
     return (
-        <main ref={container} className="relative min-h-screen bg-[#050505] text-white flex flex-col items-center justify-center px-6 overflow-hidden" id="home">
+        <main ref={container} className="relative min-h-screen bg-[#050505] text-white flex flex-col items-center justify-center px-6 overflow-hidden" id="home" style={{ position: "relative" }}>
 
             {/* Ambient Background Orbs */}
             <div className="hero-orb absolute top-[10%] left-[15%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-purple-800/30 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none"></div>
