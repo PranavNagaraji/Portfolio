@@ -62,14 +62,11 @@ export default function About() {
                             {/* Separator / Arrow pointing right */}
                             <div className="flex items-center gap-4 mb-4 md:mb-8 mt-4 pl-1">
                                 <div className="w-24 md:w-48 h-[2px] bg-gradient-to-r from-transparent to-white/40"></div>
-                                <motion.div
-                                    animate={{ x: [0, 8, 0] }}
-                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                >
+                                <div>
                                     <svg className="w-5 h-5 md:w-8 md:h-8 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
-                                </motion.div>
+                                </div>
                             </div>
 
                             <p className="text-xl md:text-3xl lg:text-4xl font-semibold text-[#888888] leading-tight tracking-tight pl-1">
@@ -92,13 +89,9 @@ export default function About() {
                                 style={{ width: "100%", scaleX: scrollYProgress, transformOrigin: 'left' }}
                             />
                         </div>
-                        <motion.span
-                            animate={{ opacity: [0.5, 1, 0.5] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="text-white text-[10px] md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase font-mono bg-[#050505]/80 px-4 py-1.5 rounded backdrop-blur-sm"
-                        >
+                        <span className="text-white/60 text-[10px] md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase font-mono bg-[#050505]/80 px-4 py-1.5 rounded backdrop-blur-sm">
                             Scroll to explore →
-                        </motion.span>
+                        </span>
                     </div>
                 </div>
 
@@ -112,15 +105,15 @@ export default function About() {
 
 function EducationCard({ data }) {
     return (
-        <div className="group relative w-[90vw] md:w-[850px] h-auto min-h-[400px] md:h-[450px] flex-shrink-0 bg-[#0c0c0c] border border-white/5 rounded-[2rem] p-6 md:p-10 hover:border-white/10 hover:bg-[#0f0f0f] transition-all duration-500 shadow-2xl flex flex-col md:flex-row items-stretch gap-8 md:gap-12 overflow-hidden">
+        <div className="edu-card group relative w-[90vw] md:w-[850px] h-auto min-h-[400px] md:h-[450px] flex-shrink-0 bg-[#0c0c0c] rounded-[2rem] p-6 md:p-10 transition-all duration-500 shadow-2xl flex flex-col md:flex-row items-stretch gap-8 md:gap-12 overflow-hidden">
 
             {/* Left: Image (Prominent Layout) */}
             {data.image && (
-                <div className="w-full md:w-[45%] h-[250px] md:h-auto rounded-xl md:rounded-2xl overflow-hidden bg-[#111] relative border border-white/5">
+                <div className="w-full md:w-[45%] h-[250px] md:h-auto rounded-xl md:rounded-2xl overflow-hidden bg-[#111] relative border border-[#c9a84c]/25">
                     <img
                         src={data.image}
                         alt={data.place}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="absolute inset-0 w-full h-full object-cover"
                     />
                 </div>
             )}
@@ -129,10 +122,10 @@ function EducationCard({ data }) {
             <div className="flex-1 flex flex-col justify-center text-left w-full py-2">
                 {/* Year Label */}
                 <div className="flex items-center gap-4 mb-4 relative opacity-80">
-                    <span className="text-xs font-mono text-[#a0a0a0] border border-white/10 px-4 py-1.5 rounded-full tracking-widest uppercase bg-[#161616]">
+                    <span className="text-xs font-mono text-[#a0a0a0] border border-[#c9a84c]/35 px-4 py-1.5 rounded-full tracking-widest uppercase bg-[#161616]">
                         {data.year}
                     </span>
-                    <div className="h-[1px] flex-1 bg-white/10"></div>
+                    <div className="h-[1px] flex-1 bg-gradient-to-r from-[#c9a84c]/40 to-transparent"></div>
                 </div>
 
                 {/* Title */}
@@ -153,7 +146,7 @@ function EducationCard({ data }) {
                 {/* Grade */}
                 {data.grade && (
                     <div className="mt-auto inline-block">
-                        <span className="text-sm font-semibold text-[#cccccc] bg-white/5 px-4 py-2 rounded-xl border border-white/10">
+                        <span className="text-sm font-semibold text-[#cccccc] bg-white/5 px-4 py-2 rounded-xl border border-[#c9a84c]/30">
                             Grade: {data.grade}
                         </span>
                     </div>

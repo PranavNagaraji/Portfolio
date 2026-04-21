@@ -32,22 +32,61 @@ body {
 }
 
 /* Outfit for all headings — geometric, premium, bold */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-outfit), system-ui, sans-serif;
 }
 
+/* ── Education card gradient golden border ── */
+.edu-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2rem;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(160, 120, 30, 0.35) 0%,
+    rgba(230, 190, 80, 0.90) 30%,
+    rgba(255, 223, 100, 1.00) 50%,
+    rgba(230, 190, 80, 0.90) 70%,
+    rgba(160, 120, 30, 0.35) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* DM Sans for readable body copy */
-p, li, blockquote {
+p,
+li,
+blockquote {
   font-family: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 /* Outfit for UI elements — nav, buttons, labels, spans */
-a, button, label, input, textarea, select, nav {
+a,
+button,
+label,
+input,
+textarea,
+select,
+nav {
   font-family: var(--font-outfit), system-ui, sans-serif;
 }
 
 /* JetBrains Mono for all monospace / tech tags */
-code, pre, kbd, samp, .font-mono {
+code,
+pre,
+kbd,
+samp,
+.font-mono {
   font-family: var(--font-mono), 'Courier New', monospace;
 }
 

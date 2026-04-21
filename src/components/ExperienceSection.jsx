@@ -176,9 +176,9 @@ export default function ExperienceSection() {
 
 function Experience({ year, role, company, description, tech = [] }) {
     return (
-        <div className="w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-[#0c0c0c] border border-white/10 rounded-[1.5rem] md:rounded-[2rem] p-5 sm:p-6 md:p-8 lg:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-16 items-start hover:bg-[#0f0f0f] transition-all duration-500 relative">
+        <div className="group w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-[#0c0c0c] border-[1px] sm:border-2 lg:border-[3px] border-[#b8860b]/30 rounded-[1.5rem] md:rounded-[2rem] p-5 sm:p-6 md:p-8 lg:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] hover:shadow-[0_0_80px_rgba(184,134,11,0.1)] flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-16 items-start hover:bg-[#0f0f0f] hover:border-[#b8860b]/60 transition-all duration-500 relative">
 
-            <div className="w-full md:w-1/3 flex-shrink-0 border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 md:pr-10 flex flex-col justify-start">
+            <div className="w-full md:w-1/3 flex-shrink-0 border-b-[1px] sm:border-b-2 md:border-b-0 md:border-r-[1px] lg:border-r-2 border-[#b8860b]/20 group-hover:border-[#b8860b]/40 transition-colors duration-500 pb-4 md:pb-0 md:pr-10 flex flex-col justify-start">
                 <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#666666] font-mono mb-1 md:mb-4 uppercase tracking-widest">{year}</p>
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#cccccc] uppercase tracking-tight leading-[1.1]">{company}</h3>
             </div>
@@ -191,7 +191,7 @@ function Experience({ year, role, company, description, tech = [] }) {
                     {tech.map((t, i) => (
                         <span
                             key={i}
-                            className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-mono text-[#a0a0a0] border border-white/10 px-2.5 sm:px-3 lg:px-5 py-1 sm:py-2 lg:py-3 rounded-full uppercase bg-[#161616]"
+                            className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-mono text-[#a0a0a0] border-[1px] lg:border-2 border-[#b8860b]/20 group-hover:border-[#b8860b]/50 transition-colors duration-500 px-2.5 sm:px-3 lg:px-5 py-1 sm:py-2 lg:py-3 rounded-full uppercase bg-[#161616] hover:bg-[#1a1a1a] hover:text-[#d4af37]"
                         >
                             {t}
                         </span>
