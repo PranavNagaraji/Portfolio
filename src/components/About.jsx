@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const educationData = [
     {
@@ -28,7 +28,7 @@ const educationData = [
         title: "High School Education",
         place: "Asian Christian Academy of India",
         grade: "95.34%",
-        description: "Built a solid academic foundation. Active member of coding clubs and extra-curricular science symposiums.",
+        description: "Built a solid academic foundation. Active member of clubs and extra-curricular science symposiums.",
         image: "/education/aca.jpeg"
     }
 ];
@@ -39,16 +39,10 @@ export default function About() {
         target: targetRef,
     });
 
-    // Added useSpring to smooth out the choppiness of the scroll translation
-    const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 20,
-        restDelta: 0.001
-    });
-
-    // Instead of completely leaving the screen, let's move it by exploring horizontal displacement
-    // Since we have 4 horizontal elements, a move to around -75% works well.
-    const x = useTransform(smoothProgress, [0, 1], ["0%", "-75%"]);
+    // Drive x directly from scrollYProgress for zero-lag, jank-free horizontal translation.
+    // useSpring was removed here because its stiffness/damping caused the content to trail
+    // behind the actual scroll position, producing visible lag.
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
     return (
         <section ref={targetRef} id="about" className="relative h-[400vh] bg-[#050505]" style={{ position: 'relative' }}>
@@ -95,7 +89,7 @@ export default function About() {
                         <div className="h-[2px] w-full bg-white/10 relative overflow-hidden rounded-full">
                             <motion.div
                                 className="absolute top-0 left-0 h-full bg-white"
-                                style={{ width: "100%", scaleX: smoothProgress, transformOrigin: 'left' }}
+                                style={{ width: "100%", scaleX: scrollYProgress, transformOrigin: 'left' }}
                             />
                         </div>
                         <motion.span
