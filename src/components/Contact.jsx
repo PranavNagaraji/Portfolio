@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaFileAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail, SiLeetcode } from "react-icons/si";
 import { motion } from "framer-motion";
 
@@ -14,7 +14,7 @@ export default function Contact() {
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '4rem 4rem' }}></div>
 
             <div className="w-full max-w-7xl mx-auto flex flex-col items-center relative z-10">
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -22,8 +22,8 @@ export default function Contact() {
                 >
                     What's Next
                 </motion.p>
-                
-                <motion.h1 
+
+                <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -33,7 +33,7 @@ export default function Contact() {
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-600">TOGETHER.</span>
                 </motion.h1>
 
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -64,6 +64,7 @@ export default function Contact() {
                         <SocialLink href="https://github.com/pranavnagaraji" icon={FaGithub} label="GitHub" />
                         <SocialLink href="https://linkedin.com/in/pranav-nagaraji" icon={FaLinkedin} label="LinkedIn" />
                         <SocialLink href="https://leetcode.com/u/PranavNagaraji/" icon={SiLeetcode} label="LeetCode" />
+                        <SocialLink href="https://drive.google.com/file/d/1v1hzdjAhdOThcK5JzLaCQMUF_EethCyM/view?usp=sharing" icon={FaFileAlt} label="Resume" />
                     </div>
                 </div>
             </div>
@@ -73,15 +74,15 @@ export default function Contact() {
 
 function SocialLink({ href, icon: Icon, label }) {
     return (
-        <a 
-            href={href} 
-            target="_blank" 
+        <a
+            href={href}
+            target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#0a0a0a] border border-white/10 rounded-full hover:bg-white hover:border-white transition-all duration-300"
             aria-label={label}
         >
             <Icon className="text-xl md:text-2xl text-gray-500 group-hover:text-black transition-colors duration-300" />
-            
+
             {/* Tooltip */}
             <span className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs font-mono bg-white text-black px-3 py-1.5 rounded pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0">
                 {label}

@@ -21,9 +21,6 @@ export default function ExperienceSection() {
     const container = useRef(null);
 
     useGSAP(() => {
-        // Guarantee non-static position before any ScrollTrigger reads it
-        gsap.set(container.current, { position: "relative" });
-
         const cards       = gsap.utils.toArray(".exp-card");
         const introTop    = gsap.utils.toArray(".intro-panel-top");
         const introBottom = gsap.utils.toArray(".intro-panel-bottom");
@@ -121,7 +118,6 @@ export default function ExperienceSection() {
             id="experience"
             ref={container}
             className="relative bg-[#050505] h-screen w-full overflow-hidden"
-            style={{ position: "relative" }}
         >
             {/* Ambient blobs */}
             <div className="absolute top-[20%] right-[-10%] w-[400px] lg:w-[600px] h-[400px] lg:h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none z-0" />
