@@ -9,10 +9,17 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const experiences = [
     {
+        year: "Jan 2026 – Feb 2026",
+        role: "Software Engineer Intern",
+        company: "Neurolonic",
+        location: "Berlin, Germany (Remote)",
+        tech: ["Frontend Engineering", "Backend Optimization", "Audio Chunking", "AI RAG", "Microservices", "Redis"]
+    },
+    {
         year: "May 2025 – Jul 2025",
         role: "Full Stack Developer Intern",
         company: "Codebrahma Tech Solutions",
-        description: "Built a secure LMS admin dashboard using Next.js with RBAC and permission-based access. Improved performance by 15% (Lighthouse 95) via SSR and reusable optimizations.",
+        location: "Hoodi, Bangalore, Karnataka",
         tech: ["Next.js", "React.js", "Node.js", "Express.js", "Database Design"]
     }
 ];
@@ -21,26 +28,28 @@ export default function ExperienceSection() {
     const container = useRef(null);
 
     useGSAP(() => {
-        const cards       = gsap.utils.toArray(".exp-card");
+        const fullCards   = gsap.utils.toArray(".exp-card-full");
+        const tops        = gsap.utils.toArray(".exp-card-top");
+        const bottoms     = gsap.utils.toArray(".exp-card-bottom");
         const introTop    = gsap.utils.toArray(".intro-panel-top");
         const introBottom = gsap.utils.toArray(".intro-panel-bottom");
 
         // Cards start invisible — revealed slowly after shutter opens
-        gsap.set(cards, {
-            opacity: 0,
+        gsap.set(fullCards, {
+            autoAlpha: 0,
             scale: 0.97,
             filter: "blur(10px)",
-            zIndex: (i, _t, ts) => ts.length - i,
         });
+        gsap.set([tops, bottoms], { autoAlpha: 0 });
 
         // Intro panels sit above all cards
-        gsap.set([introTop, introBottom], { zIndex: cards.length + 10 });
+        gsap.set([introTop, introBottom], { zIndex: fullCards.length + 10 });
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: container.current,
                 start: "top top",
-                end: `+=${(cards.length + 1) * 120}%`,
+                end: `+=${(fullCards.length + 1) * 120}%`,
                 pin: true,
                 scrub: 1.6,
             }
@@ -58,29 +67,45 @@ export default function ExperienceSection() {
             duration: 1.6,
         }, "split");
 
-        // Phase 2: Experience card fades in slowly
-        cards.forEach((card) => {
-            tl.to(card, {
-                opacity: 1,
+        // Phase 2: First Experience card fades in slowly
+        if (fullCards.length > 0) {
+            tl.to(fullCards[0], {
+                autoAlpha: 1,
                 scale: 1,
                 filter: "blur(0px)",
                 ease: "power3.out",
                 duration: 1.4,
             }, "-=0.5");
-        });
+        }
 
-        // Phase 3: Card flip-off for multiple items
-        cards.forEach((card, i) => {
-            if (i === cards.length - 1) return;
-            tl.to(card, {
-                rotateX: -90,
-                scale: 0.85,
-                y: "-15vh",
-                opacity: 0,
-                transformOrigin: "top center",
-                ease: "power2.inOut",
-                duration: 1,
-            });
+        // Phase 3: Card splits open for multiple items, next card fades in
+        fullCards.forEach((card, i) => {
+            if (i === fullCards.length - 1) return;
+            
+            tl.set(card, { autoAlpha: 0 }, `split_card_${i}`)
+              .set([tops[i], bottoms[i]], { autoAlpha: 1 }, `split_card_${i}`)
+              .to(tops[i], {
+                  yPercent: -101,
+                  ease: "expo.inOut",
+                  duration: 2.5, // slower split
+              }, `split_card_${i}`)
+              .to(bottoms[i], {
+                  yPercent: 101,
+                  ease: "expo.inOut",
+                  duration: 2.5, // slower split
+              }, `split_card_${i}`);
+              
+            // Fade in the next card as the split happens
+            tl.to(fullCards[i + 1], {
+                autoAlpha: 1,
+                scale: 1,
+                filter: "blur(0px)",
+                ease: "power3.out",
+                duration: 2.0,
+            }, `split_card_${i}+=0.3`);
+            
+            // Add a pause on the timeline so the user has to scroll a bit more before the next card starts splitting
+            tl.to({}, { duration: 0.8 });
         });
 
         // Intro text entrance
@@ -130,9 +155,18 @@ export default function ExperienceSection() {
                     {experiences.map((exp, index) => (
                         <div
                             key={index}
-                            className="exp-card pointer-events-auto absolute inset-0 flex items-center justify-center will-change-transform bg-[#050505] rounded-3xl"
+                            className="absolute inset-0 pointer-events-none"
+                            style={{ zIndex: experiences.length - index }}
                         >
-                            <Experience {...exp} />
+                            <div className="exp-card-full pointer-events-auto absolute inset-0 flex items-center justify-center will-change-transform bg-[#050505] rounded-3xl">
+                                <Experience {...exp} />
+                            </div>
+                            <div className="exp-card-top absolute inset-0 flex items-center justify-center will-change-transform bg-[#050505] rounded-3xl overflow-hidden" style={{ clipPath: "inset(0 0 50% 0 round 1.5rem)" }}>
+                                <Experience {...exp} />
+                            </div>
+                            <div className="exp-card-bottom absolute inset-0 flex items-center justify-center will-change-transform bg-[#050505] rounded-3xl overflow-hidden" style={{ clipPath: "inset(50% 0 0 0 round 1.5rem)" }}>
+                                <Experience {...exp} />
+                            </div>
                         </div>
                     ))}
 
@@ -174,18 +208,18 @@ export default function ExperienceSection() {
     );
 }
 
-function Experience({ year, role, company, description, tech = [] }) {
+function Experience({ year, role, company, location, tech = [] }) {
     return (
         <div className="group w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-[#0c0c0c] border-[1px] sm:border-2 lg:border-[3px] border-[#b8860b]/30 rounded-[1.5rem] md:rounded-[2rem] p-5 sm:p-6 md:p-8 lg:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] hover:shadow-[0_0_80px_rgba(184,134,11,0.1)] flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-16 items-start hover:bg-[#0f0f0f] hover:border-[#b8860b]/60 transition-all duration-500 relative">
 
             <div className="w-full md:w-1/3 flex-shrink-0 border-b-[1px] sm:border-b-2 md:border-b-0 md:border-r-[1px] lg:border-r-2 border-[#b8860b]/20 group-hover:border-[#b8860b]/40 transition-colors duration-500 pb-4 md:pb-0 md:pr-10 flex flex-col justify-start">
                 <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#666666] font-mono mb-1 md:mb-4 uppercase tracking-widest">{year}</p>
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#cccccc] uppercase tracking-tight leading-[1.1]">{company}</h3>
+                {location && <p className="text-xs sm:text-sm md:text-base text-[#888888] font-medium mt-1 md:mt-2">{location}</p>}
             </div>
 
             <div className="w-full md:w-2/3 flex flex-col justify-start">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] uppercase tracking-tighter mb-2 md:mb-6 leading-[1.1]">{role}</h2>
-                <p className="text-[13px] sm:text-base md:text-lg lg:text-2xl text-[#888888] leading-[1.6] md:leading-relaxed font-medium mb-4 md:mb-8">{description}</p>
 
                 <div className="flex flex-wrap gap-1.5 md:gap-2 lg:gap-3 mt-auto md:mt-4">
                     {tech.map((t, i) => (
