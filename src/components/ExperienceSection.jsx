@@ -138,16 +138,24 @@ export default function ExperienceSection() {
     }, { scope: container });
 
     const introContent = (
-        <div className="w-full px-8 md:px-16 lg:px-24 flex flex-col items-start justify-center">
-            <h1 className="intro-text text-[12vw] md:text-[8rem] lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-br from-[#ffffff] via-[#e0e0e0] to-[#555555] tracking-tighter leading-[0.85] uppercase mb-3 lg:mb-6 whitespace-nowrap drop-shadow-2xl">
+        <div className="w-full px-6 md:px-12 flex flex-col items-center justify-center text-center">
+            {/* Premium Eyebrow */}
+            <div className="intro-text flex items-center gap-3 md:gap-6 mb-4 md:mb-6">
+                <span className="w-8 md:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#a855f7]/80"></span>
+                <p className="text-[9px] md:text-xs font-mono text-[#a855f7] uppercase tracking-[0.4em] md:tracking-[0.5em] font-medium opacity-90">
+                    Professional Timeline
+                </p>
+                <span className="w-8 md:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#a855f7]/80"></span>
+            </div>
+
+            {/* Massive Metallic Title */}
+            <h1 className="intro-text text-[16vw] md:text-[9rem] lg:text-[11rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#e5e5e5] to-[#2a2a2a] tracking-[-0.03em] leading-[0.8] uppercase mb-6 md:mb-10 whitespace-nowrap drop-shadow-sm">
                 Experience
             </h1>
-            <div className="intro-text flex items-center gap-4 mb-6 lg:mb-10 mt-2 lg:mt-6 pl-2">
-                <div className="w-24 md:w-56 h-[3px] bg-gradient-to-r from-[#a855f7] to-transparent shadow-[0_0_10px_#a855f7]" />
-            </div>
-            <p className="intro-text text-2xl md:text-5xl lg:text-6xl font-medium text-[#888888] leading-tight tracking-tight pl-2">
-                My professional <br />
-                <span className="text-white font-black drop-shadow-lg">background.</span>
+
+            {/* Sophisticated Editorial Subtext */}
+            <p className="intro-text text-base md:text-2xl lg:text-3xl font-light text-[#888888] tracking-widest uppercase">
+                My <span className="text-[#ffffff] font-semibold">Professional</span> Background
             </p>
         </div>
     );
