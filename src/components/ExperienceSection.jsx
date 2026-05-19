@@ -138,16 +138,16 @@ export default function ExperienceSection() {
     }, { scope: container });
 
     const introContent = (
-        <div className="w-full px-4 md:px-8 lg:px-12 flex flex-col items-start justify-center">
-            <h1 className="intro-text text-[12.5vw] md:text-[8rem] lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] tracking-tighter leading-[0.85] uppercase mb-3 lg:mb-6 whitespace-nowrap">
+        <div className="w-full px-8 md:px-16 lg:px-24 flex flex-col items-start justify-center">
+            <h1 className="intro-text text-[12vw] md:text-[8rem] lg:text-[10rem] font-black text-transparent bg-clip-text bg-gradient-to-br from-[#ffffff] via-[#e0e0e0] to-[#555555] tracking-tighter leading-[0.85] uppercase mb-3 lg:mb-6 whitespace-nowrap drop-shadow-2xl">
                 Experience
             </h1>
-            <div className="intro-text flex items-center gap-4 mb-4 lg:mb-8 mt-1 lg:mt-4 pl-1">
-                <div className="w-20 md:w-48 h-[2px] bg-gradient-to-r from-white to-white/10" />
+            <div className="intro-text flex items-center gap-4 mb-6 lg:mb-10 mt-2 lg:mt-6 pl-2">
+                <div className="w-24 md:w-56 h-[3px] bg-gradient-to-r from-[#a855f7] to-transparent shadow-[0_0_10px_#a855f7]" />
             </div>
-            <p className="intro-text text-xl md:text-5xl lg:text-6xl font-semibold text-[#888888] leading-tight tracking-tight pl-1">
+            <p className="intro-text text-2xl md:text-5xl lg:text-6xl font-medium text-[#888888] leading-tight tracking-tight pl-2">
                 My professional <br />
-                <span className="text-white font-bold">background.</span>
+                <span className="text-white font-black drop-shadow-lg">background.</span>
             </p>
         </div>
     );
@@ -186,34 +186,34 @@ export default function ExperienceSection() {
 
                     {/* Shutter Top Half */}
                     <div
-                        className="intro-panel-top pointer-events-auto absolute inset-0 will-change-transform overflow-hidden"
-                        style={{ clipPath: "inset(0 0 50% 0 round 1.5rem)" }}
+                        className="intro-panel-top pointer-events-auto absolute inset-0 will-change-transform"
+                        style={{ clipPath: "inset(0 0 calc(50% - 1px) 0)" }}
                     >
-                        <div className="absolute inset-0 flex flex-col justify-center bg-[#050505] pb-20">
-                            {introContent}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#161616] via-[#0a0a0a] to-[#050505] border-[1px] sm:border-2 lg:border-[3px] border-[#a855f7]/20 rounded-[1.5rem] md:rounded-[2rem] shadow-[inset_0_0_80px_rgba(168,85,247,0.03),0_0_50px_rgba(0,0,0,0.8)] flex flex-col justify-center pb-20 overflow-hidden transform-gpu isolate">
+                            {/* Premium lighting effect using radial gradients */}
+                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(168,85,247,0.15)_0%,transparent_60%)] pointer-events-none opacity-100 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(168,85,247,0.1)_0%,transparent_60%)] pointer-events-none opacity-100 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+                            
+                            <div className="relative z-10 w-full">
+                                {introContent}
+                            </div>
                         </div>
-                        <div
-                            className="absolute bottom-0 left-0 right-0 h-[2px]"
-                            style={{
-                                background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.15) 80%, transparent 100%)",
-                            }}
-                        />
                     </div>
 
                     {/* Shutter Bottom Half */}
                     <div
-                        className="intro-panel-bottom pointer-events-auto absolute inset-0 will-change-transform overflow-hidden"
-                        style={{ clipPath: "inset(50% 0 0 0 round 1.5rem)" }}
+                        className="intro-panel-bottom pointer-events-auto absolute inset-0 will-change-transform"
+                        style={{ clipPath: "inset(calc(50% - 1px) 0 0 0)" }}
                     >
-                        <div className="absolute inset-0 flex flex-col justify-center bg-[#050505] pb-20">
-                            {introContent}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#161616] via-[#0a0a0a] to-[#050505] border-[1px] sm:border-2 lg:border-[3px] border-[#a855f7]/20 rounded-[1.5rem] md:rounded-[2rem] shadow-[inset_0_0_80px_rgba(168,85,247,0.03),0_0_50px_rgba(0,0,0,0.8)] flex flex-col justify-center pb-20 overflow-hidden transform-gpu isolate">
+                            {/* Premium lighting effect using radial gradients */}
+                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(168,85,247,0.15)_0%,transparent_60%)] pointer-events-none opacity-100 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(168,85,247,0.1)_0%,transparent_60%)] pointer-events-none opacity-100 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+                            
+                            <div className="relative z-10 w-full">
+                                {introContent}
+                            </div>
                         </div>
-                        <div
-                            className="absolute top-0 left-0 right-0 h-[2px]"
-                            style={{
-                                background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.15) 80%, transparent 100%)",
-                            }}
-                        />
                     </div>
 
                 </div>
@@ -224,16 +224,16 @@ export default function ExperienceSection() {
 
 function Experience({ year, role, company, location, tech = [] }) {
     return (
-        <div className="group w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-gradient-to-br from-[#161616] via-[#0a0a0a] to-[#050505] border-[1px] sm:border-2 lg:border-[3px] border-[#b8860b]/20 rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-8 md:p-10 lg:p-20 shadow-[inset_0_0_80px_rgba(184,134,11,0.03),0_0_50px_rgba(0,0,0,0.8)] hover:shadow-[inset_0_0_100px_rgba(184,134,11,0.05),0_0_80px_rgba(184,134,11,0.15)] flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-20 items-center md:items-start hover:border-[#b8860b]/50 transition-all duration-700 relative overflow-hidden transform-gpu isolate">
+        <div className="group w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-gradient-to-br from-[#161616] via-[#0a0a0a] to-[#050505] border-[1px] sm:border-2 lg:border-[3px] border-[#a855f7]/20 rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-8 md:p-10 lg:p-20 shadow-[inset_0_0_80px_rgba(168,85,247,0.03),0_0_50px_rgba(0,0,0,0.8)] hover:shadow-[inset_0_0_100px_rgba(168,85,247,0.05),0_0_80px_rgba(168,85,247,0.15)] flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-20 items-center md:items-start hover:border-[#a855f7]/50 transition-all duration-700 relative overflow-hidden transform-gpu isolate">
 
             {/* Premium lighting effect using radial gradients (avoids clip-path blur bug) */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(184,134,11,0.15)_0%,transparent_60%)] pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(184,134,11,0.1)_0%,transparent_60%)] pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(168,85,247,0.15)_0%,transparent_60%)] pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(168,85,247,0.1)_0%,transparent_60%)] pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
 
-            <div className="w-full md:w-1/3 flex-shrink-0 border-b-[1px] sm:border-b-2 md:border-b-0 md:border-r-[1px] lg:border-r-2 border-white/5 group-hover:border-[#b8860b]/30 transition-colors duration-700 pb-6 md:pb-0 md:pr-12 flex flex-col justify-start relative z-10">
+            <div className="w-full md:w-1/3 flex-shrink-0 border-b-[1px] sm:border-b-2 md:border-b-0 md:border-r-[1px] lg:border-r-2 border-white/5 group-hover:border-[#a855f7]/30 transition-colors duration-700 pb-6 md:pb-0 md:pr-12 flex flex-col justify-start relative z-10">
                 <div className="flex items-center gap-3 mb-2 md:mb-5">
-                    <span className="w-2 h-2 rounded-full bg-[#b8860b] shadow-[0_0_10px_#b8860b]" />
-                    <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#b8860b] font-mono uppercase tracking-[0.2em] font-semibold">{year}</p>
+                    <span className="w-2 h-2 rounded-full bg-[#a855f7] shadow-[0_0_10px_#a855f7]" />
+                    <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#a855f7] font-mono uppercase tracking-[0.2em] font-semibold">{year}</p>
                 </div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.1] drop-shadow-md">{company}</h3>
                 {location && <p className="text-xs sm:text-sm md:text-base text-[#888888] font-medium mt-2 md:mt-3 flex items-center gap-2">
@@ -249,7 +249,7 @@ function Experience({ year, role, company, location, tech = [] }) {
                     {tech.map((t, i) => (
                         <span
                             key={i}
-                            className="text-[10px] sm:text-xs lg:text-sm font-mono text-[#cccccc] border-[1px] border-white/10 group-hover:border-[#b8860b]/40 transition-all duration-500 px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-full uppercase bg-white/5 hover:bg-[#b8860b]/10 hover:text-white backdrop-blur-md hover:shadow-[0_0_15px_rgba(184,134,11,0.2)] hover:-translate-y-0.5 cursor-default"
+                            className="text-[10px] sm:text-xs lg:text-sm font-mono text-[#cccccc] border-[1px] border-white/10 group-hover:border-[#a855f7]/40 transition-all duration-500 px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-full uppercase bg-white/5 hover:bg-[#a855f7]/10 hover:text-white backdrop-blur-md hover:shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:-translate-y-0.5 cursor-default"
                         >
                             {t}
                         </span>

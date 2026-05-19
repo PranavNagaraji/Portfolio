@@ -64,7 +64,7 @@ export default function Contact() {
                         <SocialLink href="https://github.com/pranavnagaraji" icon={FaGithub} label="GitHub" />
                         <SocialLink href="https://linkedin.com/in/pranav-nagaraji" icon={FaLinkedin} label="LinkedIn" />
                         <SocialLink href="https://leetcode.com/u/PranavNagaraji/" icon={SiLeetcode} label="LeetCode" />
-                        <SocialLink href="https://drive.google.com/file/d/1v1hzdjAhdOThcK5JzLaCQMUF_EethCyM/view?usp=sharing" icon={FaFileAlt} label="Resume" />
+                        <SocialLink href="https://drive.google.com/file/d/1AtF1BR8TDeNG8gOtd4Dkrj6WDjlWdTOK/view?usp=sharing" icon={FaFileAlt} label="Resume" />
                     </div>
                 </div>
             </div>
