@@ -158,13 +158,13 @@ export default function ExperienceSection() {
                             className="absolute inset-0 pointer-events-none"
                             style={{ zIndex: experiences.length - index }}
                         >
-                            <div className="exp-card-full pointer-events-auto absolute inset-0 flex items-center justify-center will-change-transform bg-[#050505] rounded-3xl">
+                            <div className="exp-card-full pointer-events-auto absolute inset-0 flex items-center justify-center will-change-transform">
                                 <Experience {...exp} />
                             </div>
-                            <div className="exp-card-top absolute inset-0 flex items-center justify-center will-change-transform bg-[#050505] rounded-3xl overflow-hidden" style={{ clipPath: "inset(0 0 50% 0 round 1.5rem)" }}>
+                            <div className="exp-card-top absolute inset-0 flex items-center justify-center will-change-transform overflow-hidden" style={{ clipPath: "inset(0 0 50% 0)" }}>
                                 <Experience {...exp} />
                             </div>
-                            <div className="exp-card-bottom absolute inset-0 flex items-center justify-center will-change-transform bg-[#050505] rounded-3xl overflow-hidden" style={{ clipPath: "inset(50% 0 0 0 round 1.5rem)" }}>
+                            <div className="exp-card-bottom absolute inset-0 flex items-center justify-center will-change-transform overflow-hidden" style={{ clipPath: "inset(50% 0 0 0)" }}>
                                 <Experience {...exp} />
                             </div>
                         </div>
