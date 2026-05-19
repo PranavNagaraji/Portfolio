@@ -175,10 +175,10 @@ export default function ExperienceSection() {
                             <div className="exp-card-full pointer-events-auto absolute inset-0 flex items-center justify-center will-change-transform">
                                 <Experience {...exp} />
                             </div>
-                            <div className="exp-card-top absolute inset-0 flex items-center justify-center will-change-transform overflow-hidden" style={{ clipPath: "inset(0 0 50% 0)" }}>
+                            <div className="exp-card-top absolute inset-0 flex items-center justify-center will-change-transform" style={{ clipPath: "inset(0 0 calc(50% - 1px) 0)" }}>
                                 <Experience {...exp} />
                             </div>
-                            <div className="exp-card-bottom absolute inset-0 flex items-center justify-center will-change-transform overflow-hidden" style={{ clipPath: "inset(50% 0 0 0)" }}>
+                            <div className="exp-card-bottom absolute inset-0 flex items-center justify-center will-change-transform" style={{ clipPath: "inset(calc(50% - 1px) 0 0 0)" }}>
                                 <Experience {...exp} />
                             </div>
                         </div>
@@ -224,22 +224,32 @@ export default function ExperienceSection() {
 
 function Experience({ year, role, company, location, tech = [] }) {
     return (
-        <div className="group w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-[#0c0c0c] border-[1px] sm:border-2 lg:border-[3px] border-[#b8860b]/30 rounded-[1.5rem] md:rounded-[2rem] p-5 sm:p-6 md:p-8 lg:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] hover:shadow-[0_0_80px_rgba(184,134,11,0.1)] flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-16 items-start hover:bg-[#0f0f0f] hover:border-[#b8860b]/60 transition-all duration-500 relative">
+        <div className="group w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-gradient-to-br from-[#161616] via-[#0a0a0a] to-[#050505] border-[1px] sm:border-2 lg:border-[3px] border-[#b8860b]/20 rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-8 md:p-10 lg:p-20 shadow-[inset_0_0_80px_rgba(184,134,11,0.03),0_0_50px_rgba(0,0,0,0.8)] hover:shadow-[inset_0_0_100px_rgba(184,134,11,0.05),0_0_80px_rgba(184,134,11,0.15)] flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-20 items-center md:items-start hover:border-[#b8860b]/50 transition-all duration-700 relative overflow-hidden transform-gpu isolate">
 
-            <div className="w-full md:w-1/3 flex-shrink-0 border-b-[1px] sm:border-b-2 md:border-b-0 md:border-r-[1px] lg:border-r-2 border-[#b8860b]/20 group-hover:border-[#b8860b]/40 transition-colors duration-500 pb-4 md:pb-0 md:pr-10 flex flex-col justify-start">
-                <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#666666] font-mono mb-1 md:mb-4 uppercase tracking-widest">{year}</p>
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#cccccc] uppercase tracking-tight leading-[1.1]">{company}</h3>
-                {location && <p className="text-xs sm:text-sm md:text-base text-[#888888] font-medium mt-1 md:mt-2">{location}</p>}
+            {/* Premium lighting effect using radial gradients (avoids clip-path blur bug) */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(184,134,11,0.15)_0%,transparent_60%)] pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(184,134,11,0.1)_0%,transparent_60%)] pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-[1.5rem] md:rounded-[2rem]" />
+
+            <div className="w-full md:w-1/3 flex-shrink-0 border-b-[1px] sm:border-b-2 md:border-b-0 md:border-r-[1px] lg:border-r-2 border-white/5 group-hover:border-[#b8860b]/30 transition-colors duration-700 pb-6 md:pb-0 md:pr-12 flex flex-col justify-start relative z-10">
+                <div className="flex items-center gap-3 mb-2 md:mb-5">
+                    <span className="w-2 h-2 rounded-full bg-[#b8860b] shadow-[0_0_10px_#b8860b]" />
+                    <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#b8860b] font-mono uppercase tracking-[0.2em] font-semibold">{year}</p>
+                </div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.1] drop-shadow-md">{company}</h3>
+                {location && <p className="text-xs sm:text-sm md:text-base text-[#888888] font-medium mt-2 md:mt-3 flex items-center gap-2">
+                    <svg className="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    {location}
+                </p>}
             </div>
 
-            <div className="w-full md:w-2/3 flex flex-col justify-start">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] to-[#555555] uppercase tracking-tighter mb-2 md:mb-6 leading-[1.1]">{role}</h2>
+            <div className="w-full md:w-2/3 flex flex-col justify-start relative z-10">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#ffffff] via-[#e0e0e0] to-[#666666] uppercase tracking-tighter mb-4 md:mb-8 leading-[1] drop-shadow-lg filter">{role}</h2>
 
-                <div className="flex flex-wrap gap-1.5 md:gap-2 lg:gap-3 mt-auto md:mt-4">
+                <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-4 mt-auto">
                     {tech.map((t, i) => (
                         <span
                             key={i}
-                            className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-mono text-[#a0a0a0] border-[1px] lg:border-2 border-[#b8860b]/20 group-hover:border-[#b8860b]/50 transition-colors duration-500 px-2.5 sm:px-3 lg:px-5 py-1 sm:py-2 lg:py-3 rounded-full uppercase bg-[#161616] hover:bg-[#1a1a1a] hover:text-[#d4af37]"
+                            className="text-[10px] sm:text-xs lg:text-sm font-mono text-[#cccccc] border-[1px] border-white/10 group-hover:border-[#b8860b]/40 transition-all duration-500 px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-full uppercase bg-white/5 hover:bg-[#b8860b]/10 hover:text-white backdrop-blur-md hover:shadow-[0_0_15px_rgba(184,134,11,0.2)] hover:-translate-y-0.5 cursor-default"
                         >
                             {t}
                         </span>
