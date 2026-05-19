@@ -13,14 +13,28 @@ const experiences = [
         role: "Software Engineer Intern",
         company: "Neurolonic",
         location: "Berlin, Germany (Remote)",
-        tech: ["Frontend Engineering", "Backend Optimization", "Audio Chunking", "AI RAG", "Microservices", "Redis"]
+        tech: [
+            "React Frontend Systems",
+            "Backend API Optimization",
+            "Audio Stream Chunking",
+            "AI RAG Pipelines",
+            "Distributed Microservices",
+            "Redis Caching"
+            ]
     },
     {
         year: "May 2025 – Jul 2025",
         role: "Full Stack Developer Intern",
         company: "Codebrahma Tech Solutions",
         location: "Hoodi, Bangalore, Karnataka",
-        tech: ["Next.js", "React.js", "Node.js", "Express.js", "Database Design"]
+        tech: [
+            "Next.js",
+            "React.js",
+            "Node.js",
+            "Express.js",
+            "REST APIs",
+            "Database Schema Design"
+        ]
     }
 ];
 
