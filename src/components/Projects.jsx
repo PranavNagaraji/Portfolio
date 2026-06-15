@@ -26,10 +26,10 @@ export default function Projects() {
                 <ProjectContainer
                     image="/gathr.png"
                     title="Gathr"
-                    description="A scalable marketplace platform with RBAC and real-time features."
-                    tech={["Next.js", "Node.js", "Express.js", "PostgreSQL", "Socket.IO", "Clerk.js"]}
-                    github="https://github.com/pranavnagaraji/gathr"
-                    live="https://gathr-se.vercel.app"
+                    description="An AI-powered scalable marketplace platform with RBAC and real-time features."
+                    tech={["Next.js", "Node.js", "Express.js", "PostgreSQL", "Redis","Socket.IO", "Clerk.js"]}
+                    github="https://github.com/pranavnagaraji/gathr-ecommerce"
+                    live="https://gathr-ecommerce.vercel.app"
                 />
 
                 <ProjectContainer
