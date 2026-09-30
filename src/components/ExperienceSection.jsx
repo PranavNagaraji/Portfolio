@@ -26,11 +26,11 @@ const experiences = [
         year: "Apr 2025 – May 2025",
         role: "Computer Vision Intern",
         company: "PEPS-TECH Research and Development",
-        highlights: [
-            "Engineered a real-time driver drowsiness detection system using OpenCV, combining Haar Cascade-based face/eye detection with a CNN classifier, trained on a ∼5GB dataset (80K images across drowsy/non-drowsy classes) with preprocessing for noisy real-world inputs.",
-            "Reduced end-to-end inference latency by 10% by optimizing frame sampling, streamlining the video pipeline, and eliminating redundant computations.",
-            "Deployed the model on an IoT-based edge device, improving system responsiveness and enabling reliable drowsiness alerts in constrained, resource-limited environments."
-        ],
+        // highlights: [
+        //     "Engineered a real-time driver drowsiness detection system using OpenCV, combining Haar Cascade-based face/eye detection with a CNN classifier, trained on a ∼5GB dataset (80K images across drowsy/non-drowsy classes) with preprocessing for noisy real-world inputs.",
+        //     "Reduced end-to-end inference latency by 10% by optimizing frame sampling, streamlining the video pipeline, and eliminating redundant computations.",
+        //     "Deployed the model on an IoT-based edge device, improving system responsiveness and enabling reliable drowsiness alerts in constrained, resource-limited environments."
+        // ],
         tech: ["OpenCV", "Haar Cascades", "CNN", "IoT Edge Deployment"]
     },
     {
