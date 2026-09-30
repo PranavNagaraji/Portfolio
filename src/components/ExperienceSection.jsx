@@ -12,7 +12,12 @@ const experiences = [
         year: "Jan 2026 – Feb 2026",
         role: "Software Engineer Intern",
         company: "Neurolonic",
-        location: "Berlin, Germany (Remote)",
+        location: "Remote, Berlin, Germany",
+        // highlights: [
+        //     "Optimized audio chunking for an AI RAG pipeline, increasing backend data transmission speed by 20% and supporting real-time processing.",
+        //     "Enhanced microservices for real-time sentiment and emotion analysis, generating statistical reports to surface insights from user interactions.",
+        //     "Integrated Redis caching into the backend architecture, reducing inter-service latency by 15% and improving service communication efficiency."
+        // ],
         tech: [
             "React Frontend Systems",
             "Backend API Optimization",
@@ -27,9 +32,9 @@ const experiences = [
         role: "Computer Vision Intern",
         company: "PEPS-TECH Research and Development",
         // highlights: [
-        //     "Engineered a real-time driver drowsiness detection system using OpenCV, combining Haar Cascade-based face/eye detection with a CNN classifier, trained on a ∼5GB dataset (80K images across drowsy/non-drowsy classes) with preprocessing for noisy real-world inputs.",
-        //     "Reduced end-to-end inference latency by 10% by optimizing frame sampling, streamlining the video pipeline, and eliminating redundant computations.",
-        //     "Deployed the model on an IoT-based edge device, improving system responsiveness and enabling reliable drowsiness alerts in constrained, resource-limited environments."
+        //     "Built a real-time driver drowsiness detector with OpenCV Haar Cascades and a CNN classifier, using a ∼5GB dataset of 80K drowsy and non-drowsy images and preprocessing for noisy inputs.",
+        //     "Reduced end-to-end inference latency by 10% through optimized frame sampling, a streamlined video pipeline, and fewer redundant computations.",
+        //     "Deployed the model to an IoT edge device to deliver responsive, reliable drowsiness alerts in a resource-constrained environment."
         // ],
         tech: ["OpenCV", "Haar Cascades", "CNN", "IoT Edge Deployment"]
     },
@@ -38,6 +43,11 @@ const experiences = [
         role: "Full Stack Developer Intern",
         company: "Codebrahma Tech Solutions",
         location: "Hoodi, Bangalore, Karnataka",
+        // highlights: [
+        //     "Built a secure Next.js admin dashboard for a learning management system, implementing role-based access control and permission-scoped data for 3+ user roles.",
+        //     "Improved application performance by 15% and achieved a Lighthouse score of 95 through rendering optimizations, server-side rendering, and automated Python performance tests.",
+        //     "Developed 20+ reusable Material UI components with Framer Motion for responsive layouts, animations, and a modular interface."
+        // ],
         tech: [
             "Next.js",
             "React.js",
