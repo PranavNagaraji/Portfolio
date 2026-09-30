@@ -23,6 +23,17 @@ const experiences = [
             ]
     },
     {
+        year: "Apr 2025 – May 2025",
+        role: "Computer Vision Intern",
+        company: "PEPS-TECH Research and Development",
+        highlights: [
+            "Engineered a real-time driver drowsiness detection system using OpenCV, combining Haar Cascade-based face/eye detection with a CNN classifier, trained on a ∼5GB dataset (80K images across drowsy/non-drowsy classes) with preprocessing for noisy real-world inputs.",
+            "Reduced end-to-end inference latency by 10% by optimizing frame sampling, streamlining the video pipeline, and eliminating redundant computations.",
+            "Deployed the model on an IoT-based edge device, improving system responsiveness and enabling reliable drowsiness alerts in constrained, resource-limited environments."
+        ],
+        tech: ["OpenCV", "Haar Cascades", "CNN", "IoT Edge Deployment"]
+    },
+    {
         year: "May 2025 – Jul 2025",
         role: "Full Stack Developer Intern",
         company: "Codebrahma Tech Solutions",
@@ -230,7 +241,7 @@ export default function ExperienceSection() {
     );
 }
 
-function Experience({ year, role, company, location, tech = [] }) {
+function Experience({ year, role, company, location, highlights = [], tech = [] }) {
     return (
         <div className="group w-full max-h-full custom-scrollbar overflow-y-auto sm:overflow-visible bg-gradient-to-br from-[#161616] via-[#0a0a0a] to-[#050505] border-[1px] sm:border-2 lg:border-[3px] border-[#a855f7]/20 rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-8 md:p-10 lg:p-20 shadow-[inset_0_0_80px_rgba(168,85,247,0.03),0_0_50px_rgba(0,0,0,0.8)] hover:shadow-[inset_0_0_100px_rgba(168,85,247,0.05),0_0_80px_rgba(168,85,247,0.15)] flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-20 items-center md:items-start hover:border-[#a855f7]/50 transition-all duration-700 relative overflow-hidden transform-gpu isolate">
 
@@ -252,6 +263,14 @@ function Experience({ year, role, company, location, tech = [] }) {
 
             <div className="w-full md:w-2/3 flex flex-col justify-start relative z-10">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#ffffff] via-[#e0e0e0] to-[#666666] uppercase tracking-tighter mb-4 md:mb-8 leading-[1] drop-shadow-lg filter">{role}</h2>
+
+                {highlights.length > 0 && (
+                    <ul className="list-disc pl-5 mb-6 space-y-2 text-xs sm:text-sm md:text-base text-[#b0b0b0] leading-relaxed marker:text-[#a855f7]">
+                        {highlights.map((highlight, index) => (
+                            <li key={index}>{highlight}</li>
+                        ))}
+                    </ul>
+                )}
 
                 <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-4 mt-auto">
                     {tech.map((t, i) => (
