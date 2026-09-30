@@ -38,7 +38,6 @@ export default function Projects() {
                     description="Full-stack sports platform for athletes, coaches, and clubs with dashboards, team management, bookings, and real-time chat."
                     tech={["React.js", "Node.js", "Express.js", "MongoDB", "Mongoose", "Socket.IO"]}
                     github="https://github.com/pranavnagaraji/athletenet"
-                    live="https://athletenet.vercel.app/"
                 />
 
                 <ProjectContainer
